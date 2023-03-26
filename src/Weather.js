@@ -4,10 +4,18 @@ import "./Weather.css";
 
 export default function Weather() {
   const [ready, setReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+  const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
     console.log(response.data);
-    setTemperature(response.data.temperature);
+    setWeatherData({
+      temperature: response.data.temperature.current,
+      wind: response.data.wind.speed,
+      city: response.data.city,
+      humidity: response.data.temperature.humidity,
+      description: response.data.condition.description,
+      feelsLike: response.data.temperature.feels_like,
+    });
+
     setReady(true);
   }
 
@@ -39,17 +47,17 @@ export default function Weather() {
             </button>
           </div>
         </form>
-        <h1 id="current-city">Zagreb</h1>
+        <h1 id="current-city">{weatherData.city}</h1>
         <h2>
-          Last updated: <span id="current-day-time"></span>
+          Last updated: <span></span>
         </h2>
         <div className="row text-center today">
           <div className="col">
-            <span className="current-temperature" id="current-temperature">
-              8
+            <span className="current-temperature">
+              {weatherData.temperature.current}
             </span>
             <span className="units">°C</span>
-            <div className="description" id="description"></div>
+            <div className="description">{weatherData.description}</div>
           </div>
           <div className="col">
             <img
@@ -62,13 +70,18 @@ export default function Weather() {
           <div className="col">
             <ul className="details">
               <li>
-                Feels like: <span id="feels-like">8</span>°C
+                Feels like:{" "}
+                <span id="feels-like">
+                  {weatherData.temperature.feels_like}
+                </span>
+                °C
               </li>
               <li>
-                Wind: <span id="wind-speed">4</span> mph
+                Wind: <span id="wind-speed">{weatherData.wind.speed}</span> mph
               </li>
               <li>
-                Humidity: <span id="humidity">87</span>%
+                Humidity:{" "}
+                <span id="humidity">{weatherData.temperature.humidity}</span>%
               </li>
             </ul>
           </div>
