@@ -28,7 +28,7 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert(city);
+    Search();
   }
 
   function handleCityChange(event) {
@@ -54,7 +54,7 @@ export default function Weather(props) {
             <button className="current-location-button">Current</button>
           </div>
         </form>
-        <WeatherInfo data={weatherData.Data} />
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
