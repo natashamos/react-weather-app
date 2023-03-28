@@ -1,10 +1,11 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <h1 id="current-city">{props.data.city}</h1>
+      <h1>{props.data.city}</h1>
       <h2>
         Last updated:{" "}
         <span>
@@ -20,26 +21,19 @@ export default function WeatherInfo(props) {
           <div className="text-capitalize">{props.data.description}</div>
         </div>
         <div className="col">
-          <img
-            alt="icon"
-            id="icon"
-            className="icon"
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-night.png"
-          />
+          <WeatherIcon code={props.data.icon} />
         </div>
         <div className="col">
           <ul className="details">
             <li>
-              Feels like:{" "}
-              <span id="feels-like">{props.data.temperature.feels_like}</span>
+              Feels like: <span>{props.data.temperature.feels_like}</span>
               °C
             </li>
             <li>
-              Wind: <span id="wind-speed">{props.data.wind.speed}</span> mph
+              Wind: <span>{props.data.wind.speed}</span> mph
             </li>
             <li>
-              Humidity:{" "}
-              <span id="humidity">{props.data.temperature.humidity}</span>%
+              Humidity: <span>{props.data.temperature.humidity}</span>%
             </li>
           </ul>
         </div>
