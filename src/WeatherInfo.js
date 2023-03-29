@@ -7,10 +7,7 @@ export default function WeatherInfo(props) {
     <div className="WeatherInfo">
       <h1>{props.data.city}</h1>
       <h2>
-        Last updated:{" "}
-        <span>
-          <FormattedDate date={props.data.date} />
-        </span>
+        Last updated: <FormattedDate date={props.data.date} />
       </h2>
       <div className="row text-center today">
         <div className="col">
