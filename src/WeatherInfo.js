@@ -20,11 +20,11 @@ export default function WeatherInfo(props) {
         <div className="col">
           <ul className="details">
             <li>
-              Feels like: <span>{props.data.feelsLike}</span>
+              Feels like: <span>{Math.round(props.data.feelsLike)}</span>
               °C
             </li>
             <li>
-              Wind: <span>{props.data.wind}</span> mph
+              Wind: <span>{Math.round(props.data.wind)}</span> mph
             </li>
             <li>
               Humidity: <span>{props.data.humidity}</span>%

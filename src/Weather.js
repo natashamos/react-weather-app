@@ -52,7 +52,7 @@ export default function Weather(props) {
             <button className="btn btn-outline-secondary" type="submit">
               Search
             </button>
-            <button className="current-location-button">Current</button>
+            {/* <button className="current-location-button">Current</button> */}
           </div>
         </form>
         <WeatherInfo data={weatherData} />
