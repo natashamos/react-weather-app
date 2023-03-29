@@ -2,7 +2,7 @@ import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
 
-export default class WeatherIcon(props) {
+export default function WeatherIcon(props) {
   const iconMatching = {
     "01d": "CLEAR_DAY",
     "01n": "CLEAR_NIGHT",
@@ -24,13 +24,12 @@ export default class WeatherIcon(props) {
     "50n": "FOG",
   };
 
-    return (
-      <ReactAnimatedWeather
-        icon={iconMatching[props.code]}
-        color="#000"
-        size={38}
-        animate={true}
-      />
-    );
-    }
+  return (
+    <ReactAnimatedWeather
+      icon={iconMatching[props.code]}
+      color="#000"
+      size={38}
+      animate={true}
+    />
+  );
 }
