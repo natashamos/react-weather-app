@@ -11,6 +11,8 @@ function App() {
           <a
             className="footer-link"
             href="https://github.com/natashamos/react-weather-app"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Open-source code
           </a>{" "}
